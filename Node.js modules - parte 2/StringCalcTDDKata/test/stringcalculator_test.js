@@ -27,10 +27,19 @@ exports.stringcalculator = {
     // setup here
     done();
   },
-  'no args': function(test) {
+  'test 1': function(test) {
     test.expect(1);
     // tests here
-    test.equal(stringcalculator.awesome(), 'awesome', 'should be awesome.');
+    test.equal(stringcalculator.add(''), 0, 'Add Should return 0 if string empty');
     test.done();
-  }
-};
+  },
+  'test 2': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1'), 1,'Add Should return 1 if string is "1"');
+    test.done();
+  },
+  'test 3': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1,2'), 3,'Add Should return 3 if string is "1,2"');
+    test.done();
+  }};
