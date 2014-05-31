@@ -1,0 +1,33 @@
+{
+  "name": "stringcalculator",
+  "version": "0.0.0",
+  "main": "lib/stringcalculator.js",
+  "description": "This is simple Code Kata to my blog post about Node.js modules",
+  "homepage": "http://chamixblog.azurewebsites.net/",
+  "bugs": "https://github.com/chamix/stringcalculator/issues",
+  "author": {
+    "name": "chamix",
+    "email": "chamix2@hotmail.com",
+    "url": "http://camiloverapersonal.azurewebsites.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chamix/stringcalculator"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "keywords": [],
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^0.4.0",
+    "time-grunt": "^0.3.1",
+    "jshint-stylish": "^0.2.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
