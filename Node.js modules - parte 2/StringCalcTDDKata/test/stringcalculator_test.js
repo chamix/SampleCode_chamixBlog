@@ -42,4 +42,9 @@ exports.stringcalculator = {
     test.expect(1);
     test.equal(stringcalculator.add('1,2'), 3,'Add Should return 3 if string is "1,2"');
     test.done();
+  },
+  'test 4': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1,2,10,11'), 24,'Add Should return 24 if string is "1,2"');
+    test.done();
   }};
