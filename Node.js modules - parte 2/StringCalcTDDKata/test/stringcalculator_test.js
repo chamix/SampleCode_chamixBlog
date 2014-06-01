@@ -29,7 +29,6 @@ exports.stringcalculator = {
   },
   'test 1': function(test) {
     test.expect(1);
-    // tests here
     test.equal(stringcalculator.add(''), 0, 'Add Should return 0 if string empty');
     test.done();
   },
@@ -47,4 +46,15 @@ exports.stringcalculator = {
     test.expect(1);
     test.equal(stringcalculator.add('1,2,10,11'), 24,'Add Should return 24 if string is "1,2"');
     test.done();
-  }};
+  },
+  'test 5': function(test){
+    test.expect(1);
+    test.throws(stringcalculator.add('camilo'), Error,'Only numeric values are allowed');
+    test.done();
+  },
+  'test 6': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1,2,-1'), 2,'Add should return 2 if string is "1,2,-1"');
+    test.done();
+  }
+};
