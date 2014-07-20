@@ -1,4 +1,5 @@
-SampleCode_chamixBlog
+chamix Blog - Sample Code
 =====================
 
-Sample code I use in http://chamixblog.azurewebsites.net.
+##Sample code I use in http://chamixblog.azurewebsites.net.
+
