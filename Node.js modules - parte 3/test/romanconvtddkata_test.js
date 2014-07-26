@@ -98,5 +98,23 @@ exports.romanconvtddkata = {
     // tests here
     test.equal(romanconvtddkata.RomanToDec('MMCDLXXXII'), 2482, 'RomanToDec should return 2482 when "XLIV"');
     test.done();
-  }
+  },
+  'Test { 0 -> string empty}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(0), '', 'DecToRoman should return string empty when 0');
+    test.done();
+  },
+  'Test { 1 -> I}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(1), 'I', 'DecToRoman should return "I" when 1');
+    test.done();
+  },
+  'Test { 3 -> III}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(3), 'III', 'DecToRoman should return "III" when 3');
+    test.done();
+  }  
 };

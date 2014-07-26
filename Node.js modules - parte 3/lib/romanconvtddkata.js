@@ -15,6 +15,7 @@ var romanDictHelper=function(romanNumber){
 		}
 	}
 };
+
 exports.RomanToDec = function(romanNumber) {
 	var result = 0;		
 	if(romanNumber){
@@ -32,6 +33,13 @@ exports.RomanToDec = function(romanNumber) {
 		else{
 			result+=romanDictHelper(romanNumber);
 		}
+	}
+	return result;
+};
+exports.DecToRoman = function(decNumber){
+	var result='';
+	if(decNumber){
+		result = 'I';
 	}
 	return result;
 };
