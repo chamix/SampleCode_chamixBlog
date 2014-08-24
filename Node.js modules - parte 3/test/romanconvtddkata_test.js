@@ -116,5 +116,89 @@ exports.romanconvtddkata = {
     // tests here
     test.equal(romanconvtddkata.DecToRoman(3), 'III', 'DecToRoman should return "III" when 3');
     test.done();
-  }  
+  },  
+  'Test { 4 -> V}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(4), 'IV', 'DecToRoman should return "IV" when 4');
+    test.done();
+  },
+  'Test { 5 -> V}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(5), 'V', 'DecToRoman should return "V" when 5');
+    test.done();
+  },
+  'Test { 6 -> VI}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(6), 'VI', 'DecToRoman should return "VI" when 6');
+    test.done();
+  },
+  'Test { 8 -> VIII}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(8), 'VIII', 'DecToRoman should return "VIII" when 8');
+    test.done();
+  },
+  'Test { 9 -> IX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(9), 'IX', 'DecToRoman should return "IX" when 9');
+    test.done();
+  },
+  'Test { 10 -> X}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(10), 'X', 'DecToRoman should return "X" when 10');
+    test.done();
+  },
+  'Test { 39 -> XXXIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(39), 'XXXIX', 'DecToRoman should return "XXXIX" when 39');
+    test.done();
+  },
+  'Test { 40 -> XL}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(40), 'XL', 'DecToRoman should return "XL" when 40');
+    test.done();
+  },
+  'Test { 49 -> XLIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(49), 'XLIX', 'DecToRoman should return "XLIX" when 49');
+    test.done();
+  },
+  'Test { 50 -> L}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(50), 'L', 'DecToRoman should return "L" when 50');
+    test.done();
+  },
+  'Test { 89 -> LXXXIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(89), 'LXXXIX', 'DecToRoman should return "LXXXIX" when 89');
+    test.done();
+  },
+  'Test { 90 -> XC}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(90), 'XC', 'DecToRoman should return "XC" when 90');
+    test.done();
+  },
+  'Test { 105 -> CV}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(105), 'CV', 'DecToRoman should return "CV" when 105');
+    test.done();
+  },
+  'Test { 389 -> CCCLXXXIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(389), 'CCCLXXXIX', 'DecToRoman should return "CCCLXXXIX" when 389');
+    test.done();
+  }
 };

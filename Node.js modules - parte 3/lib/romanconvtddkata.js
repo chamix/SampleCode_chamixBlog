@@ -16,6 +16,14 @@ var romanDictHelper=function(romanNumber){
 	}
 };
 
+//var numeralHelper=function(decimalNumber){
+//	for(var i=0;romanDictTable.length;i++){
+//		if(romanDictTable[i].d === decimalNumber){
+//			return romanDictHelper[i].r;
+//		}
+//	}
+//};
+
 exports.RomanToDec = function(romanNumber) {
 	var result = 0;		
 	if(romanNumber){
@@ -36,10 +44,49 @@ exports.RomanToDec = function(romanNumber) {
 	}
 	return result;
 };
+
 exports.DecToRoman = function(decNumber){
-	var result='';
+	var result = '';
 	if(decNumber){
-		result = 'I';
+		while(decNumber)
+		{
+			if(decNumber<4){
+				result+='I';
+				decNumber--;
+			}
+			if(decNumber === 4){
+				result+='IV';
+				decNumber=decNumber-4;
+			}
+			if(decNumber > 4 && decNumber < 9){
+				result+='V';
+				decNumber=decNumber-5;
+			}
+			if(decNumber === 9){
+				result += 'IX';
+				decNumber = decNumber - 9;
+			}
+			if(decNumber > 9 && decNumber < 40){
+				result+='X';
+				decNumber=decNumber-10;
+			}
+			if(decNumber > 39 && decNumber < 50){
+				result+='XL';
+				decNumber=decNumber-40;
+			}
+			if(decNumber > 49 && decNumber < 90){
+				result+='L';
+				decNumber-=50;
+			}
+			if(decNumber > 89 && decNumber < 100){
+				result+='XC';
+				decNumber-=90;
+			}
+			if(decNumber > 99){
+				result+='C';
+				decNumber-=100;
+			}
+		}
 	}
 	return result;
 };
