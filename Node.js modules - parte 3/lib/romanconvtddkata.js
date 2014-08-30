@@ -82,9 +82,25 @@ exports.DecToRoman = function(decNumber){
 				result+='XC';
 				decNumber-=90;
 			}
-			if(decNumber > 99){
+			if(decNumber > 99 && decNumber < 400){
 				result+='C';
 				decNumber-=100;
+			}
+			if(decNumber > 399 && decNumber < 500){
+				result+='CD';
+				decNumber-=400;
+			}
+			if(decNumber > 499 && decNumber < 900){
+				result+='D';
+				decNumber-=500;
+			}
+			if(decNumber > 899 && decNumber < 1000){
+				result+='CM';
+				decNumber-=900;
+			}
+			if(decNumber > 999 && decNumber < 4999){
+				result+='M';
+				decNumber-=1000;
 			}
 		}
 	}

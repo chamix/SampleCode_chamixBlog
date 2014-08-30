@@ -200,5 +200,41 @@ exports.romanconvtddkata = {
     // tests here
     test.equal(romanconvtddkata.DecToRoman(389), 'CCCLXXXIX', 'DecToRoman should return "CCCLXXXIX" when 389');
     test.done();
+  },
+  'Test { 399 -> CCCXCIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(399), 'CCCXCIX', 'DecToRoman should return "CCCXCIX" when 399');
+    test.done();
+  },
+  'Test { 499 -> CDXCIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(499), 'CDXCIX', 'DecToRoman should return "CDXCIX" when 499');
+    test.done();
+  },
+  'Test { 689 -> DCLXXXIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(689), 'DCLXXXIX', 'DecToRoman should return "DCLXXXIX" when 689');
+    test.done();
+  },
+  'Test { 999 -> CMXCIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(999), 'CMXCIX', 'DecToRoman should return "CMXCIX" when 999');
+    test.done();
+  },
+  'Test { 1999 -> MCMXCIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(1999), 'MCMXCIX', 'DecToRoman should return "MCMXCIX" when 1999');
+    test.done();
+  },
+  'Test { 3949 -> MMMCMXLIX}': function(test) {
+    test.expect(1);
+    // tests here
+    test.equal(romanconvtddkata.DecToRoman(3949), 'MMMCMXLIX', 'DecToRoman should return "MMMCMXLIX" when 3949');
+    test.done();
   }
 };
