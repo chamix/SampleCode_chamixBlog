@@ -16,14 +16,6 @@ var romanDictHelper=function(romanNumber){
 	}
 };
 
-//var numeralHelper=function(decimalNumber){
-//	for(var i=0;romanDictTable.length;i++){
-//		if(romanDictTable[i].d === decimalNumber){
-//			return romanDictHelper[i].r;
-//		}
-//	}
-//};
-
 exports.RomanToDec = function(romanNumber) {
 	var result = 0;		
 	if(romanNumber){
