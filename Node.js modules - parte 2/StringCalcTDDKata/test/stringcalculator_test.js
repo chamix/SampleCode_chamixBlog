@@ -56,5 +56,15 @@ exports.stringcalculator = {
     test.expect(1);
     test.equal(stringcalculator.add('1,2,-1'), 2,'Add should return 2 if string is "1,2,-1"');
     test.done();
+  },
+  'test 7': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1,2,--1'), 4,'Add should return 4 if string is "1,2,--1"');
+    test.done();
+  },
+  'test 8': function(test){
+    test.expect(1);
+    test.equal(stringcalculator.add('1,2,++1'), 4,'Add should return 4 if string is "1,2,++1"');
+    test.done();
   }
 };

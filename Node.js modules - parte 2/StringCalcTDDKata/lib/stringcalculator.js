@@ -10,12 +10,14 @@
 
 exports.add = function(numbers) {
 	if(numbers){
-		var numberArray = numbers.split(',');
+		var numberArray = numbers.split(','),
+			total = 0;
 		if(numberArray.length === 0){	
 			return parseInt(numbers);
 		}
-		var total = 0;
 		for(var i=0; i<numberArray.length; i++){
+			numberArray[i] = numberArray[i].replace('--','');
+			numberArray[i] = numberArray[i].replace('++', '');		
 			total += parseInt(numberArray[i]);
 		}
 		return total;
