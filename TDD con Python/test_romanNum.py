@@ -8,5 +8,40 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(1)
 		self.assertEqual(result, 'I')
 
+	def test_romanNum_DecToRoman_should_return_II_when_2(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(2)
+		self.assertEqual(result, 'II')
+
+	def test_romanNum_DecToRoman_should_return_III_when_3(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(3)
+		self.assertEqual(result, 'III')
+
+	def test_romanNum_DecToRoman_should_return_IV_when_4(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(4)
+		self.assertEqual(result, 'IV')
+
+	def test_romanNum_DecToRoman_should_return_V_when_5(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(5)
+		self.assertEqual(result, 'V')
+
+	def test_romanNum_DecToRoman_should_return_VIII_when_8(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(8)
+		self.assertEqual(result, 'VIII')
+
+	def test_romanNum_DecToRoman_should_return_IX_when_9(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(9)
+		self.assertEqual(result, 'IX')
+
+#	def test_romanNum_DecToRoman_should_return_XXXVIII_when_38(self):
+#		roamanNumInstance = romanNum()
+#		result = romanNum.DecToRoman(38)
+#		self.assertEqual(result, 'XXXVIII')
+
 if __name__ == '__main__':
 	unittest.main()
