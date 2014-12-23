@@ -18,7 +18,11 @@ class romanNum(object):
 			if(decNumber == 9):
 				romanResult = romanResult + 'IX'
 				decNumber = decNumber - 9
-			if(decNumber > 9 and decNumber > 49):
+			if(decNumber > 9 and decNumber < 49):
 				romanResult = romanResult + 'X'
 				decNumber = decNumber - 10
+			if(decNumber > 49 and decNumber < 90):
+				romanResult = romanResult + 'L'
+				decNumber = decNumber - 50
+			#if(decNumber )	
 		return romanResult
