@@ -43,6 +43,21 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(38)
 		self.assertEqual(result, 'XXXVIII')
 
+	def test_romanNum_DecToRoman_should_return_XXXIX_when_39(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(39)
+		self.assertEqual(result, 'XXXIX')
+
+	def test_romanNum_DecToRoman_should_return_XLVIII_when_48(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(48)
+		self.assertEqual(result, 'XLVIII')
+
+	def test_romanNum_DecToRoman_should_return_XLIX_when_49(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(49)
+		self.assertEqual(result, 'XLIX')
+
 	def test_romanNum_DecToRoman_should_return_LIII_when_53(self):
 		roamanNumInstance = romanNum()
 		result = romanNum.DecToRoman(53)
@@ -53,10 +68,20 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(88)
 		self.assertEqual(result, 'LXXXVIII')
 
-#	def test_romanNum_DecToRoman_should_return_XCIX_when_99(self):
-#		roamanNumInstance = romanNum()
-#		result = romanNum.DecToRoman(99)
-#		self.assertEqual(result, 'XCIX')
+	def test_romanNum_DecToRoman_should_return_XCIX_when_99(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(99)
+		self.assertEqual(result, 'XCIX')
 
+	def test_romanNum_DecToRoman_should_return_CCXCIX_when_299(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(299)
+		self.assertEqual(result, 'CCXCIX')
+
+	def test_romanNum_DecToRoman_should_return_CCCXCIX_when_399(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(399)
+		self.assertEqual(result, 'CCCXCIX')
+	
 if __name__ == '__main__':
 	unittest.main()
