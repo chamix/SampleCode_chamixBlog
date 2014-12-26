@@ -83,5 +83,25 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(399)
 		self.assertEqual(result, 'CCCXCIX')
 	
+	def test_romanNum_DecToRoman_should_return_CDXCIX_when_499(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(499)
+		self.assertEqual(result, 'CDXCIX')
+	
+	def test_romanNum_DecToRoman_should_return_DCCCXCIX_when_899(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(899)
+		self.assertEqual(result, 'DCCCXCIX')
+	
+	def test_romanNum_DecToRoman_should_return_CMXCIX_when_999(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(999)
+		self.assertEqual(result, 'CMXCIX')
+	
+	def test_romanNum_DecToRoman_should_return_MMMCMXCIX_when_3999(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(3999)
+		self.assertEqual(result, 'MMMCMXCIX')
+	
 if __name__ == '__main__':
 	unittest.main()

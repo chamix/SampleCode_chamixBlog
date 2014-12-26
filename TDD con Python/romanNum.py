@@ -33,4 +33,16 @@ class romanNum(object):
 			if(decNumber > 99 and decNumber < 400):
 				romanResult = romanResult + 'C'
 				decNumber = decNumber - 100
+			if(decNumber > 399 and decNumber < 500):
+				romanResult = romanResult + 'CD'
+				decNumber = decNumber - 400
+			if(decNumber > 499 and decNumber < 900):
+				romanResult = romanResult + 'D'
+				decNumber = decNumber - 500
+			if(decNumber > 899 and decNumber < 1000):
+				romanResult = romanResult + 'CM'
+				decNumber = decNumber - 900				
+			if(decNumber > 999 and decNumber < 4000):
+				romanResult = romanResult + 'M'
+				decNumber = decNumber - 1000				
 		return romanResult
