@@ -103,5 +103,25 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(3999)
 		self.assertEqual(result, 'MMMCMXCIX')
 	
+	def test_romanNum_DecToRoman_should_return_ERROR_when_input_is_not_a_positive_integer(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(-1)
+		self.assertEqual(result, 'ERROR')
+	
+	def test_romanNum_DecToRoman_should_return_ERROR_when_0(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(0)
+		self.assertEqual(result, 'ERROR')
+	
+	def test_romanNum_DecToRoman_should_return_ERROR_when_is_not_a_number(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman('a')
+		self.assertEqual(result, 'ERROR')
+
+	def test_romanNum_DecToRoman_should_return_ERROR_when_is_greater_than_3999(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.DecToRoman(4000)
+		self.assertEqual(result, 'ERROR')
+		
 if __name__ == '__main__':
 	unittest.main()
