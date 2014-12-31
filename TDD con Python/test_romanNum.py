@@ -123,5 +123,25 @@ class Test_romanNum(unittest.TestCase):
 		result = romanNum.DecToRoman(4000)
 		self.assertEqual(result, 'ERROR')
 		
+	def test_romanNum_RomanToDec_should_return_1_when_I(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.RomanToDec('I')
+		self.assertEqual(result, 1)
+		
+	def test_romanNum_RomanToDec_should_return_2_when_II(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.RomanToDec('II')
+		self.assertEqual(result, 2)
+		
+	def test_romanNum_RomanToDec_should_return_3_when_III(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.RomanToDec('III')
+		self.assertEqual(result, 3)
+	
+	def test_romanNum_RomanToDec_should_return_4_when_IV(self):
+		roamanNumInstance = romanNum()
+		result = romanNum.RomanToDec('IV')
+		self.assertEqual(result, 4)
+		
 if __name__ == '__main__':
 	unittest.main()

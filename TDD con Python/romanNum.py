@@ -3,6 +3,13 @@ class romanNum(object):
 	def __init__(self):
 		super(romanNum, self).__init__()
 
+	def RomanToDec(RomanNumber):
+		romanDecDic = {'I':1, 'V':5}
+		decResult = 0
+		for rD in RomanNumber:
+			decResult = decResult + romanDecDic[rD]
+		return decResult
+
 	def DecToRoman (decNumber):
 		romanResult = ''
 		if not (type(decNumber) is int):
