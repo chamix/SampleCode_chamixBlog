@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # game-of-life [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > this a tdd excercise with game of life kata to my blog
 
@@ -28,3 +29,10 @@ Apache-2.0 © [camilo.vera](http://chamixblog.blogspot.com/)
 [travis-url]: https://travis-ci.org/chamix/game-of-life
 [daviddm-image]: https://david-dm.org/chamix/game-of-life.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/chamix/game-of-life
+=======
+chamix Blog - Sample Code
+=====================
+
+##Sample code I use in http://chamixblog.blogspot.com.ar/.
+
+>>>>>>> 7004775a57cd1ad6373b8d7da5541588d498d7a4

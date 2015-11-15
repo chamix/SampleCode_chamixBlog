@@ -1,0 +1,31 @@
+{
+  "name": "modulo-prueba",
+  "version": "0.0.0",
+  "description": "este es un modulo de prueba",
+  "homepage": "http://chamixblog.blogspot.com.ar",
+  "author": {
+    "name": "Camilo Vera",
+    "email": "chamix2@hotmail.com",
+    "url": "https://chamixblog.blogsport.com.ar"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib\\index.js",
+  "keywords": [],
+  "repository": "chamix/modulo-prueba",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "Apache-2.0"
+}
