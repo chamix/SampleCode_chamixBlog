@@ -21,8 +21,8 @@ FizzBuzz.prototype.fizzBuzz = function (n) {
 
 FizzBuzz.prototype.fizzBuzz_Serie = function (n) {
 	var result = [];
-	for (i=1; i< n+1; i++){
-		result.push = fizzBuzz(i);
+	for (var i=1; i< n+1; i++){
+		result.push = FizzBuzz.fizzBuzz(i);
 	}
 	return result;
 };
