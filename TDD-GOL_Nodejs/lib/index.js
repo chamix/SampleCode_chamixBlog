@@ -38,4 +38,8 @@ GameOfLife.prototype.clearBoard = function () {
 	}
 };
 
+GameOfLife.prototype.calculateFirstRule = function () {
+	return this.Board.matrix;
+}
+
 module.exports = new GameOfLife();
