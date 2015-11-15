@@ -1,0 +1,31 @@
+{
+  "name": "game-of-life-chamix",
+  "version": "0.0.0",
+  "description": "this is a Game of life tdd sample for blog",
+  "homepage": "http://chamixblog.blogspot.com/",
+  "author": {
+    "name": "Camilo Vera",
+    "email": "vera.camilocsharp@gmail.com",
+    "url": "http://chamixblog.blogspot.com/"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib\\index.js",
+  "keywords": [],
+  "repository": "git@github.com:chamix/SampleCode_chamixBlog.git",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "Apache-2.0"
+}
