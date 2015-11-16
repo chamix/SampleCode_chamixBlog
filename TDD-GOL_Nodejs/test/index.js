@@ -25,15 +25,26 @@ describe('game-of-life-chamix', function () {
 		var init = [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 0, 0], [1, 1, 1, 0]];
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
-		var result = true;
-		for (var i = 0; i < gameOfLife.Board.X; i++) {
-			for (var j = 0; j < gameOfLife.Board.Y; j++) {
-				if (gameOfLife.Board.matrix[i][j] !== init[i][j]){
-					result = false;
+		var resultAssert = '[';
+		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
+			resultAssert += '[';
+			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
+				if (j< gameOfLife.Board.Y){
+					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
+				}
+				else {
+					resultAssert += gameOfLife.Board.matrix[i][j].toString();	
 				}
 			}
+			if (i < gameOfLife.Board.X){
+				resultAssert += '], ';
+			}
+			else {
+				resultAssert += ']';
+			}
 		}
-		assert(result, 'board is set ok');
+		resultAssert += ']';
+		assert.strictEqual(resultAssert, '[[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 0, 0], [1, 1, 1, 0]]');
 	});
 	it('clearBoard should set the all matrix values in 0', function () {
 		gameOfLife.setBoardSize(5, 5);
@@ -41,15 +52,26 @@ describe('game-of-life-chamix', function () {
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
 		gameOfLife.clearBoard();
-		var result = true;
-		for (var i = 0; i < gameOfLife.Board.X; i++) {
-			for (var j = 0; j < gameOfLife.Board.Y; j++) {
-				if (gameOfLife.Board.matrix[i][j] !== 0){
-					result = false;
+		var resultAssert = '[';
+		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
+			resultAssert += '[';
+			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
+				if (j< gameOfLife.Board.Y){
+					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
+				}
+				else {
+					resultAssert += gameOfLife.Board.matrix[i][j].toString();	
 				}
 			}
+			if (i < gameOfLife.Board.X){
+				resultAssert += '], ';
+			}
+			else {
+				resultAssert += ']';
+			}
 		}
-		assert(result, 'board is clean');
+		resultAssert += ']';
+		assert.strictEqual(resultAssert, '[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]');
 	});
 	//Any live cell with fewer than two live neighbours dies, as if caused by under-population.
 	it('calculateFirstRule should calculate the next gen using the first rule', function () {
@@ -59,14 +81,25 @@ describe('game-of-life-chamix', function () {
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
 		var result = gameOfLife.calculateFirstRule();
-		var resultAssert = true;
-		for (var i = 0; i < gameOfLife.Board.X; i++) {
-			for (var j = 0; j < gameOfLife.Board.Y; j++) {
-				if (gameOfLife.Board.matrix[i][j] !== end[i][j]){
-					result = false;
+		var resultAssert = '[';
+		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
+			resultAssert += '[';
+			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
+				if (j < gameOfLife.Board.Y){
+					resultAssert += result[i][j].toString() + ', ';
+				}
+				else {
+					resultAssert += result[i][j].toString();	
 				}
 			}
+			if (i < gameOfLife.Board.X){
+				resultAssert += '], ';
+			}
+			else {
+				resultAssert += ']';
+			}
 		}
-		assert(result, 'first rule calculation fail');
+		resultAssert += ']';
+		assert.strictEqual(resultAssert, '[[0, 1, 0, 0, 0], [0, 0, 0, 0, 0], [1, 1, 1, 0, 0], [1, 0, 0, 1, 0], [0, 1, 1, 0, 0]]');
 	});
 });
