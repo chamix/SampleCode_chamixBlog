@@ -29,11 +29,11 @@ describe('game-of-life-chamix', function () {
 		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
 			resultAssert += '[';
 			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
-				if (j< gameOfLife.Board.Y){
+				if (j < gameOfLife.Board.Y){
 					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
 				}
 				else {
-					resultAssert += gameOfLife.Board.matrix[i][j].toString();	
+					resultAssert += gameOfLife.Board.matrix[i][j].toString();
 				}
 			}
 			if (i < gameOfLife.Board.X){
@@ -56,11 +56,11 @@ describe('game-of-life-chamix', function () {
 		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
 			resultAssert += '[';
 			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
-				if (j< gameOfLife.Board.Y){
+				if (j < gameOfLife.Board.Y){
 					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
 				}
 				else {
-					resultAssert += gameOfLife.Board.matrix[i][j].toString();	
+					resultAssert += gameOfLife.Board.matrix[i][j].toString();
 				}
 			}
 			if (i < gameOfLife.Board.X){
@@ -73,7 +73,51 @@ describe('game-of-life-chamix', function () {
 		resultAssert += ']';
 		assert.strictEqual(resultAssert, '[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]');
 	});
-	//Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+
+	// Rules:
+	// 1. Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+
+	it('getNumberOfCalculations should return the number of calcs to next gen with rule 1 ', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.getNumberOfCalculations();
+		assert.strictEqual(result, 7);
+	});
+	it('countNeighbours should return 1 given the sample (Rule 1) ', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.countNeighbours(0, 0);
+		assert.strictEqual(result, 1);
+	});
+	it('countNeighbours should return 2 given the sample (Rule 1) ', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.countNeighbours(0, 1);
+		assert.strictEqual(result, 2);
+	});
+	it('liveOnNextGen should return true given the sample (Rule 1) ', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(0, 1);
+		assert.strictEqual(result, true);
+	});
+	it('liveOnNextGen should return false given the sample (Rule 1) ', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(0, 0);
+		assert.strictEqual(result, false);
+	});
+	/*
 	it('calculateFirstRule should calculate the next gen using the first rule', function () {
 		gameOfLife.setBoardSize(5, 5);
 		var init = [[0, 0, 0, 0, 0], [0, 1, 1, 0, 0], [0, 1, 0, 0, 0], [1, 1, 1, 0, 0], [1, 0, 0, 1, 1]];
@@ -89,7 +133,7 @@ describe('game-of-life-chamix', function () {
 					resultAssert += result[i][j].toString() + ', ';
 				}
 				else {
-					resultAssert += result[i][j].toString();	
+					resultAssert += result[i][j].toString();
 				}
 			}
 			if (i < gameOfLife.Board.X){
@@ -102,4 +146,5 @@ describe('game-of-life-chamix', function () {
 		resultAssert += ']';
 		assert.strictEqual(resultAssert, '[[0, 1, 0, 0, 0], [0, 0, 0, 0, 0], [1, 1, 1, 0, 0], [1, 0, 0, 1, 0], [0, 1, 1, 0, 0]]');
 	});
+	*/
 });
