@@ -39,7 +39,7 @@ GameOfLife.prototype.clearBoard = function () {
 };
 
 GameOfLife.prototype.countNeighbours = function (i, j) {
-	var CountNeighbours = '';
+	var CountNeighbours = 0;
 	var xLimUp = i + 2;
 	var yLimUp = j + 2;
 	for (var x = i; x < xLimUp + 1; x++) {
@@ -56,24 +56,34 @@ GameOfLife.prototype.countNeighbours = function (i, j) {
 
 GameOfLife.prototype.liveOnNextGen = function (i, j) {
 	var CountNeighbours = this.countNeighbours(i, j);
+	var currentValue = this.Board.matrix[i + 1][j + 1];
 	// 1. Any live cell with fewer than two live neighbours dies, as if caused by under-population.
-	if (CountNeighbours < 2){
-		return false;
+	if (currentValue === 1 && CountNeighbours < 2){
+		return 0;
 	}
-	return true;
-};
+	// 2. Any live cell with two or three live neighbours lives on to the next generation.
+	if (currentValue === 1 && (CountNeighbours === 2 || CountNeighbours === 3)){
+		return 1;
+	}
+	// 3. Any live cell with more than three live neighbours dies, as if by over-population.
+	if (currentValue === 1 && CountNeighbours > 3){
+		return 0;
+	}
+	// 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+	if (currentValue === 0 && CountNeighbours === 3){
+		return 1;
+	}
+	return currentValue;
+ };
 
-GameOfLife.prototype.getNumberOfCalculations = function () {
+GameOfLife.prototype.calculateNextGen = function () {
 	var m = this.Board.matrix;
-	var result = 0;
 	for (var i = 1; i < this.Board.X + 1; i++) {
-		for (var j = 1; j < this.Board.Y + 1; j++) {
-			if (m[i][j] === 1){
-				result ++;
-			}
+		for (var j = 1; j < this.Board.Y + 1; j++){
+			m[i][j] = this.liveOnNextGen(i - 1, j - 1);
 		}
 	}
-	return result;
+	return m;
 };
 
 module.exports = new GameOfLife();
