@@ -14,6 +14,7 @@ GameOfLife.prototype.setBoardSize = function (x, y) {
 };
 
 GameOfLife.prototype.initMatrix = function () {
+	//Extend board (4x4) => (5x5)
 	for (var i = 0; i < this.Board.X + 1; i++) {
 		this.Board.matrix.push([]);
 		for (var j = 0; j < this.Board.Y + 1; j++) {
@@ -37,6 +38,35 @@ GameOfLife.prototype.clearBoard = function () {
 		}
 	}
 };
+
+GameOfLife.prototype.printBoard = function (e) {
+	var i = 1;
+	var j = 1;
+	if(e){
+		i = 0;
+		j = 0;
+	}
+	var result = '[';
+	for (var i = 1; i < this.Board.X + 1; i++) {
+		result += '[';
+		for (var j = 1; j < this.Board.Y + 1; j++) {
+			if (j < this.Board.Y){
+				result += this.Board.matrix[i][j].toString() + ', ';
+			}
+			else {
+				result += this.Board.matrix[i][j].toString();
+			}
+		}
+		if (i < this.Board.X){
+			result += '], ';
+		}
+		else {
+			result += ']';
+		}
+	}
+	result += ']';
+	return result;
+}
 
 GameOfLife.prototype.countNeighbours = function (i, j) {
 	var CountNeighbours = 0;

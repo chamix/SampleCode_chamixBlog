@@ -20,30 +20,20 @@ describe('game-of-life-chamix', function () {
 		gameOfLife.initMatrix();
 		assert(gameOfLife.Board.matrix[3][3] === 0, 'board is set ok');
 	});
+	it('printBoard should return an string with the formated board as multi dim array', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.printBoard();
+		assert.strictEqual(result, '[[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]]');
+	});
 	it('setInitialState should set the inital state of the game board', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 0, 0], [1, 1, 1, 0]];
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
-		var resultAssert = '[';
-		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
-			resultAssert += '[';
-			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
-				if (j < gameOfLife.Board.Y){
-					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
-				}
-				else {
-					resultAssert += gameOfLife.Board.matrix[i][j].toString();
-				}
-			}
-			if (i < gameOfLife.Board.X){
-				resultAssert += '], ';
-			}
-			else {
-				resultAssert += ']';
-			}
-		}
-		resultAssert += ']';
+		var resultAssert = gameOfLife.printBoard();
 		assert.strictEqual(resultAssert, '[[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 0, 0], [1, 1, 1, 0]]');
 	});
 	it('clearBoard should set the all matrix values in 0', function () {
@@ -52,32 +42,14 @@ describe('game-of-life-chamix', function () {
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
 		gameOfLife.clearBoard();
-		var resultAssert = '[';
-		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
-			resultAssert += '[';
-			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
-				if (j < gameOfLife.Board.Y){
-					resultAssert += gameOfLife.Board.matrix[i][j].toString() + ', ';
-				}
-				else {
-					resultAssert += gameOfLife.Board.matrix[i][j].toString();
-				}
-			}
-			if (i < gameOfLife.Board.X){
-				resultAssert += '], ';
-			}
-			else {
-				resultAssert += ']';
-			}
-		}
-		resultAssert += ']';
+		var resultAssert = gameOfLife.printBoard();
 		assert.strictEqual(resultAssert, '[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]');
 	});
 
 	// Rules:
 	// 1. Any live cell with fewer than two live neighbours dies, as if caused by under-population.
 
-	it('countNeighbours should return 1 given the sample (Rule 1) ', function () {
+	it('(0,0) = 0 countNeighbours should return 1 given the sample (0,0) = 0', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -85,7 +57,7 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.countNeighbours(0, 0);
 		assert.strictEqual(result, 1);
 	});
-	it('countNeighbours should return 2 given the sample (Rule 1) ', function () {
+	it('(0, 1) = 0 countNeighbours should return 2 given the sample', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -93,15 +65,7 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.countNeighbours(0, 1);
 		assert.strictEqual(result, 2);
 	});
-	it('countNeighbours should return 0 given the sample (Rule 1) ', function () {
-		gameOfLife.setBoardSize(4, 4);
-		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
-		gameOfLife.initMatrix();
-		gameOfLife.setInitialState(init);
-		var result = gameOfLife.countNeighbours(3, 0);
-		assert.strictEqual(result, 0);
-	});
-	it('countNeighbours should return 3 given the sample (Rule 1) ', function () {
+	it('(2, 2) = 1countNeighbours should return 3 given the sample', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -109,15 +73,41 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.countNeighbours(2, 2);
 		assert.strictEqual(result, 3);
 	});
-	it('liveOnNextGen should return true given the sample (Rule 1) ', function () {
+	it('(3, 0) = 0 countNeighbours should return 0 given the sample', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
-		var result = gameOfLife.liveOnNextGen(0, 1);
-		assert.strictEqual(result, 1);
+		var result = gameOfLife.countNeighbours(3, 0);
+		assert.strictEqual(result, 0);
 	});
-	it('liveOnNextGen should return false given the sample (Rule 1) ', function () {
+	it('(3, 1) = 0 countNeighbours should return 3 given the sample', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.countNeighbours(3, 1);
+		assert.strictEqual(result, 3);
+	});
+	it('(3, 2) = 1 countNeighbours should return 2 given the sample', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.countNeighbours(3, 2);
+		assert.strictEqual(result, 2);
+	});
+	it('(3, 3) = 1 countNeighbours should return 2 given the sample', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.countNeighbours(3, 3);
+		assert.strictEqual(result, 2);
+	});
+
+	//liveOnNextGen
+	it('(0, 0) = 0 liveOnNextGen should return 0', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -125,7 +115,15 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.liveOnNextGen(0, 0);
 		assert.strictEqual(result, 0);
 	});
-	it('liveOnNextGen should return true given the sample (Rule 1) ', function () {
+	it('(0, 1) = 1 liveOnNextGen should return 1', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(0, 1);
+		assert.strictEqual(result, 1);
+	});
+	it('(0, 1) = 1 liveOnNextGen should return 1', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -133,7 +131,7 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.liveOnNextGen(2, 2);
 		assert.strictEqual(result, 1);
 	});
-	it('liveOnNextGen should return false given the sample (Rule 1) ', function () {
+	it('(3, 0) = 1 liveOnNextGen should return 0', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
@@ -141,31 +139,44 @@ describe('game-of-life-chamix', function () {
 		var result = gameOfLife.liveOnNextGen(3, 0);
 		assert.strictEqual(result, 0);
 	});
+	it('(3, 1) = 0 liveOnNextGen should return 1', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(3, 1);
+		assert.strictEqual(result, 1);
+	});
+	it('(3, 2) = 1 liveOnNextGen should return 1', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(3, 2);
+		assert.strictEqual(result, 1);
+	});
+	it('(3, 3) = 1 liveOnNextGen should return 1', function () {
+		gameOfLife.setBoardSize(4, 4);
+		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		var result = gameOfLife.liveOnNextGen(3, 3);
+		assert.strictEqual(result, 1);
+		assert.strictEqual(gameOfLife.Board.matrix[4][4], 1);
+	});
+
+	//calculateNextGen
 	it('calculateNextGen should calculate the next', function () {
 		gameOfLife.setBoardSize(4, 4);
 		var init = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [1, 0, 1, 1]];
 		gameOfLife.initMatrix();
 		gameOfLife.setInitialState(init);
 		var result = gameOfLife.calculateNextGen();
-		var resultAssert = '[';
-		for (var i = 1; i < gameOfLife.Board.X + 1; i++) {
-			resultAssert += '[';
-			for (var j = 1; j < gameOfLife.Board.Y + 1; j++) {
-				if (j < gameOfLife.Board.Y){
-					resultAssert += result[i][j].toString() + ', ';
-				}
-				else {
-					resultAssert += result[i][j].toString();
-				}
-			}
-			if (i < gameOfLife.Board.X){
-				resultAssert += '], ';
-			}
-			else {
-				resultAssert += ']';
-			}
-		}
-		resultAssert += ']';
-		assert.strictEqual(resultAssert, '[[0, 1, 1, 0], [0, 0, 1, 1], [0, 0, 1, 0], [0, 1, 1, 1]]');
+		var resultAssert = gameOfLife.printBoard();
+		//assert.strictEqual(resultAssert, '[[0, 1, 1, 0], [0, 0, 1, 1], [0, 0, 1, 0], [0, 1, 1, 1]]');
+		assert.strictEqual(result[4][1], 0, '[4][1], 0');
+		assert.strictEqual(result[4][2], 1, '[4][2], 1');
+		assert.strictEqual(result[4][3], 1, '[4][3], 1');
+		assert.strictEqual(result[4][4], 1, "[4][4], 1");
 	});
 });
