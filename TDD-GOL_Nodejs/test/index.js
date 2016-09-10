@@ -329,5 +329,6 @@ describe('game-of-life-chamix', function () {
 		assert.strictEqual(result[4][2], 1);
 		assert.strictEqual(result[4][3], 1);
 		assert.strictEqual(result[4][4], 1);
+		assert.strictEqual(gameOfLife.printBoard(),'[[0, 1, 1, 0], [0, 0, 1, 1], [0, 0, 1, 0], [0, 1, 1, 1]]');
 	});
 });
