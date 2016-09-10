@@ -107,10 +107,30 @@ GameOfLife.prototype.liveOnNextGen = function (i, j) {
  };
 
 GameOfLife.prototype.calculateNextGen = function () {
-	var m = this.Board.matrix;
+	var m = [[]];
+	//init return matrix
+	for (var i = 0; i < this.Board.X + 1; i++) {
+		m[i] = [];
+		for (var j = 0; j < this.Board.Y + 1; j++) {
+			m[i][j] = 0;
+		}
+	}
+	//copy Board to result matrix
+	for (var i = 0; i < this.Board.X + 1; i++) {
+		for (var j = 0; j < this.Board.Y + 1; j++) {
+			m[i][j] = this.Board.matrix[i][j];
+		}
+	}
+	//Calculate next generation matrix
 	for (var i = 1; i < this.Board.X + 1; i++) {
 		for (var j = 1; j < this.Board.Y + 1; j++){
 			m[i][j] = this.liveOnNextGen(i - 1, j - 1);
+		}
+	}
+	//copy result matrix to Board
+	for (var i = 0; i < this.Board.X + 1; i++) {
+		for (var j = 0; j < this.Board.Y + 1; j++) {
+			this.Board.matrix[i][j] = m[i][j];
 		}
 	}
 	return m;
