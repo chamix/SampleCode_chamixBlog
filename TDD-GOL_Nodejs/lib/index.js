@@ -39,6 +39,17 @@ GameOfLife.prototype.clearBoard = function () {
 	}
 };
 
+GameOfLife.prototype.checkIfBoardClean = function (){
+	for (var i = 1; i < this.Board.X + 1; i++) {
+		for (var j = 1; j < this.Board.Y + 1; j++) {
+			if(this.Board.matrix[i][j] !==0 ){
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 GameOfLife.prototype.printBoard = function (e) {
 	var i = 1;
 	var j = 1;

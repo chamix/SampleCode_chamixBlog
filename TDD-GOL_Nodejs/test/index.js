@@ -45,6 +45,17 @@ describe('game-of-life-chamix', function () {
 		var resultAssert = gameOfLife.printBoard();
 		assert.strictEqual(resultAssert, '[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]');
 	});
+	it('checkIfBoardClean should return true when elements are 0 other case return false', function () {
+		gameOfLife.setBoardSize(5, 5);
+		var init = [[0, 0, 0, 0, 0], [0, 1, 1, 0, 0], [0, 1, 0, 0, 0], [1, 1, 1, 0, 0], [1, 0, 0, 1, 1]];
+		gameOfLife.initMatrix();
+		gameOfLife.setInitialState(init);
+		assert.strictEqual(gameOfLife.checkIfBoardClean(), false);
+		gameOfLife.clearBoard();
+		assert.strictEqual(gameOfLife.checkIfBoardClean(), true);
+		var resultAssert = gameOfLife.printBoard();
+		assert.strictEqual(resultAssert, '[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]');
+	});
 
 	// CountNeighbours()
 	it('(0,0)', function () {
